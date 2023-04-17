@@ -62,9 +62,9 @@ function checkAllowedIP(req, res, next) {
     clientIP = clientIP.slice(7);
   }
 
-  console.log("Client IP address:", clientIP); // Log the client IP address
+  console.log("Client IP address:", clientIP); // Logs the client IP address
 
-  if (allowedIPs.includes(clientIP)) {
+  if (allowedIPs.includes(clientIP) || allowedIPs.includes("0.0.0.0")) {
     next(); // Proceed to the next middleware or route handler
   } else {
     res
